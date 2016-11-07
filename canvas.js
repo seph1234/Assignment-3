@@ -238,7 +238,7 @@ var counter = setInterval (function() {
 	drawSmoke();
  }
 }, 1000);
-//asfdklsajfk
+
 
 
 
