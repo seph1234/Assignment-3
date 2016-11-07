@@ -2,9 +2,10 @@ var canvas = document.getElementById("myCanvas");
 var ctx = canvas.getContext("2d");
 drawGround();
 drawHouse();
-drawSmoke();
-drawSmoke2();
-drawSmoke3();
+//drawSmoke();
+//drawSmoke2();
+//drawSmoke3();
+//drawSmoke4();
 // fuction for drawing ground
 function drawGround() {
 var centerX = 0;
@@ -38,6 +39,7 @@ function drawHouse(){
 var x = canvas.width / 2;
 var y = canvas.height / 2;
 var grd = ctx.createRadialGradient(250, 250, 50, 250, 250, 180);
+
 // sidewall
 ctx.beginPath();
 ctx.moveTo(x,y +110);
@@ -138,6 +140,66 @@ ctx.strokeStyle = 'black';
 ctx.stroke();
 }
 
+//function for smoke
+function drawSmoke(){
+var grd = ctx.createRadialGradient(250, 250, 50, 250, 250, 180);
+ctx.beginPath();
+ctx.moveTo(195,180);
+ctx.quadraticCurveTo(180,170,200,170);
+ctx.quadraticCurveTo(210,150,217,170);
+ctx.quadraticCurveTo(240,170,220,180);
+ctx.quadraticCurveTo(225,195,208,185);
+ctx.quadraticCurveTo(195,195,195,180);
+ctx.closePath();
+grd.addColorStop(0, 'grey');
+grd.addColorStop(1, 'black');
+ctx.fillStyle = grd;
+ctx.fill();
+ctx.lineWidth = 1;
+ctx.strokeStyle = 'black';
+ctx.stroke();
+}
+
+// function for smoke animation 1
+function drawSmoke4(){
+var grd = ctx.createRadialGradient(250, 250, 50, 250, 250, 180);
+ctx.beginPath();
+ctx.moveTo(200,175);
+ctx.quadraticCurveTo(180,160,205,165);
+ctx.quadraticCurveTo(210,150,217,165);
+ctx.quadraticCurveTo(240,170,220,175);
+ctx.quadraticCurveTo(225,195,208,180);
+ctx.quadraticCurveTo(190,190,200,175);
+ctx.closePath();
+grd.addColorStop(0, 'grey');
+grd.addColorStop(1, 'black');
+ctx.fillStyle = grd;
+ctx.fill();
+ctx.lineWidth = 1;
+ctx.strokeStyle = 'black';
+ctx.stroke();
+}
+
+//function for smoke2
+function drawSmoke2(){
+var grd = ctx.createRadialGradient(250, 250, 50, 250, 250, 180);
+ctx.beginPath();
+ctx.moveTo(170,150);
+ctx.quadraticCurveTo(150,130,180,140);
+ctx.quadraticCurveTo(190,110,210,140);
+ctx.quadraticCurveTo(230,140,210,150);
+ctx.quadraticCurveTo(200,170,190,160);
+ctx.quadraticCurveTo(160,170,170,150);
+ctx.closePath();
+grd.addColorStop(0, 'grey');
+grd.addColorStop(1, 'black');
+ctx.fillStyle = grd;
+ctx.fill();
+ctx.lineWidth = 1;
+ctx.strokeStyle = 'black';
+ctx.stroke();
+}
+
 //function for smoke3
 function drawSmoke3(){
 var grd = ctx.createRadialGradient(250, 250, 50, 250, 250, 180);
@@ -158,48 +220,24 @@ ctx.strokeStyle = 'black';
 ctx.stroke();
 }
 
-//function for smoke
-function drawSmoke2(){
-var grd = ctx.createRadialGradient(250, 250, 50, 250, 250, 180);
-ctx.beginPath();
-ctx.moveTo(160,150);
-ctx.quadraticCurveTo(150,130,180,140);
-ctx.quadraticCurveTo(190,110,210,140);
-ctx.quadraticCurveTo(230,140,210,150);
-ctx.quadraticCurveTo(200,170,190,160);
-ctx.quadraticCurveTo(160,170,170,150);
-ctx.closePath();
-grd.addColorStop(0, 'grey');
-grd.addColorStop(1, 'black');
-ctx.fillStyle = grd;
-ctx.fill();
-ctx.lineWidth = 1;
-ctx.strokeStyle = 'black';
-ctx.stroke();
-}
+var counter = setInterval (function() {
 
+ document.querySelector('input[type=range]').value = 50;
 
-//function for smoke2
-function drawSmoke(){
-var grd = ctx.createRadialGradient(250, 250, 50, 250, 250, 180);
-ctx.beginPath();
-ctx.moveTo(190,180);
-ctx.quadraticCurveTo(180,160,200,170);
-ctx.quadraticCurveTo(210,150,220,170);
-ctx.quadraticCurveTo(240,170,220,180);
-ctx.quadraticCurveTo(220,195,200,180);
-ctx.quadraticCurveTo(190,190,190,180);
-ctx.closePath();
-grd.addColorStop(0, 'grey');
-grd.addColorStop(1, 'black');
-ctx.fillStyle = grd;
-ctx.fill();
-ctx.lineWidth = 1;
-ctx.strokeStyle = 'black';
-ctx.stroke();
-}
-
-
+ counter++;
+ if (counter % 3 == 1) {
+	ctx.clearRect(0, 0, 500, 190);
+	drawSmoke3();
+	counter = 0;
+	counter++
+ } else if (counter % 2==1) {
+	ctx.clearRect(0, 0, 500, 190);
+	drawSmoke2();
+ } else{
+	ctx.clearRect(0, 0, 500, 190);
+	drawSmoke();
+ }
+}, 1000);
 
 
 

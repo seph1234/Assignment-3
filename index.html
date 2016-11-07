@@ -6,9 +6,9 @@
 	<link href="StyleSheet.css" rel="stylesheet" type="text/css">
 </head> 
 <body>
-	<form oninput = "x.value = parseInt(a.value) + parseInt(b.value)">
-	<input type = "range" name = "a" id="mySlider" value = "50" />
 	<canvas id="myCanvas" width="500" height="500"></canvas>
+	<form oninput = "x.value = parseInt(a.value) + parseInt(b.value)">
+	<input type = "range" id="mySlider" value = "50" min="0" max="100" />
 	<script src="canvas.js"></script>
 </body> 
 </html>
