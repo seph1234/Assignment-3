@@ -1,0 +1,11 @@
+#myCanvas{
+	margin:0;
+}
+body{
+	border:1px solid black;
+}
+#mySlider{
+	vertical-align:middle;
+	margin:0;
+	float:center;
+}
