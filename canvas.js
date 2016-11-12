@@ -222,15 +222,15 @@ ctx.stroke();
 
 var counter = setInterval (function() {
 
- document.querySelector('input[type=range]').value = 50;
-
+ //document.querySelector('input[type=range]').value;
+ //clearInterval();
  counter++;
  if (counter % 3 == 1) {
 	ctx.clearRect(0, 0, 500, 190);
 	drawSmoke3();
 	counter = 0;
 	counter++
- } else if (counter % 2==1) {
+ } else if (counter % 2 == 1) {
 	ctx.clearRect(0, 0, 500, 190);
 	drawSmoke2();
  } else{
@@ -238,7 +238,3 @@ var counter = setInterval (function() {
 	drawSmoke();
  }
 }, 1000);
-
-
-
-
