@@ -1,29 +1,42 @@
 var canvas = document.getElementById("myCanvas");
 var ctx = canvas.getContext("2d");
+var speed = document.getElementById("mySlider");
+var index = 0;
+var timer = 0;
+// calls on the fuction drawGround
 drawGround();
+// calls on the function drawHouse
 drawHouse();
+// calls on the function drawSky
 drawSky();
-//drawSmoke();
-//drawSmoke2();
-//drawSmoke3();
-//drawSmoke4();
+// calls on the function RunSmoke
+RunSmoke();
 
- var counter = setInterval (function() {
- counter++;
- if (counter % 3 == 1) {
+// function for smoke animation
+function RunSmoke(){ 	
+timer = setInterval ( function()
+{
+ 
+ if (index ==2) {
 	ctx.clearRect(0, 130, 500, 160);
 	drawSmoke3();
-	counter = 0;
-	counter++
- } else if (counter % 2 == 1) {
+	index = -1;
+ } else if (index == 1) {
 	ctx.clearRect(0, 130, 500, 160);
 	drawSmoke2();
- } else{
+ } else if(index==0){
 	ctx.clearRect(0, 130, 500, 160);
 	drawSmoke();
  }
+ index++;
+}, speed.value);
+}
+ speed.addEventListener("change",function(){
+	 clearInterval(timer);
+	 RunSmoke();
+ },false);
 
- } , 1000);
+
 // function for drawing sky
 function drawSky() {
 var x = 0;
@@ -443,6 +456,7 @@ ctx.quadraticCurveTo(240,170,220,180);
 ctx.quadraticCurveTo(225,195,208,185);
 ctx.quadraticCurveTo(195,195,195,180);
 ctx.closePath();
+// apply styling
 grd.addColorStop(0, 'grey');
 grd.addColorStop(1, 'black');
 ctx.fillStyle = grd;
@@ -467,6 +481,7 @@ ctx.quadraticCurveTo(230,140,210,150);
 ctx.quadraticCurveTo(200,170,190,160);
 ctx.quadraticCurveTo(160,170,170,150);
 ctx.closePath();
+// apply styling
 grd.addColorStop(0, 'grey');
 grd.addColorStop(1, 'black');
 ctx.fillStyle = grd;
@@ -491,6 +506,7 @@ ctx.quadraticCurveTo(200,100,180,110);
 ctx.quadraticCurveTo(180,130,150,110);
 ctx.quadraticCurveTo(110,130,130,100);
 ctx.closePath();
+// apply styling
 grd.addColorStop(0, 'grey');
 grd.addColorStop(1, 'black');
 ctx.fillStyle = grd;
@@ -500,21 +516,3 @@ ctx.strokeStyle = 'black';
 ctx.stroke();
 ctx.restore();
 }
-
-/*
-function smoke() {
-  var elem = document.getElementById("drawSmoke");
-  var pos = 0;
-  var id = setInterval(frame, 10);
-  function frame() {
-    if (pos == 350) {
-      clearInterval(id);
-    } else {
-      pos++;
-      elem.style.top = pos + 'px';
-      elem.style.left = pos + 'px';
-    }
-  }
-}
-}
-*/

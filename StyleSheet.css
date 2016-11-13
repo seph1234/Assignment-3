@@ -1,8 +1,7 @@
 #myCanvas{
 	border:1px solid black;
+	background-color:skyblue;
 }
 #mySlider{
-	vertical-align:middle;
-	margin:0;
-	float:center;
+	width:500px;
 }
