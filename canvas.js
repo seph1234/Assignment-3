@@ -273,6 +273,7 @@ ctx.moveTo(x-20,y + 90);
 ctx.lineTo(x-20,y + 80);
 
 ctx.closePath();
+// apply styling
 ctx.lineWidth = 0.3;
 ctx.strokeStyle = 'black';
 ctx.stroke();
@@ -358,6 +359,7 @@ ctx.moveTo(x + 60, y + 100);
 ctx.lineTo(x + 60, y + 110);
 
 ctx.closePath();
+// apply styling
 ctx.lineWidth = 0.3;
 ctx.strokeStyle = 'black';
 ctx.stroke();
@@ -445,6 +447,7 @@ ctx.restore();
 //function for smoke
 function drawSmoke(){
 var grd = ctx.createRadialGradient(250, 250, 50, 250, 250, 180);
+// save state
 ctx.save();
 // translate context
 ctx.translate(canvas.width / 2 - 280, canvas.height / 2 - 150);
@@ -464,12 +467,14 @@ ctx.fill();
 ctx.lineWidth = 1;
 ctx.strokeStyle = 'black';
 ctx.stroke();
+// restore to original state
 ctx.restore();
 }
 
-//function for smoke2
+// function for smoke2
 function drawSmoke2(){
 var grd = ctx.createRadialGradient(250, 250, 50, 250, 250, 180);
+// save state
 ctx.save();
 // translate context
 ctx.translate(canvas.width / 2 - 280, canvas.height / 2 - 150);
@@ -489,12 +494,14 @@ ctx.fill();
 ctx.lineWidth = 1;
 ctx.strokeStyle = 'black';
 ctx.stroke();
+// restore to original state
 ctx.restore();
 }
 
-//function for smoke3
+// function for smoke3
 function drawSmoke3(){
 var grd = ctx.createRadialGradient(250, 250, 50, 250, 250, 180);
+// save state
 ctx.save();
 // translate context
 ctx.translate(canvas.width / 2 - 280, canvas.height / 2 - 150);
@@ -514,5 +521,6 @@ ctx.fill();
 ctx.lineWidth = 1;
 ctx.strokeStyle = 'black';
 ctx.stroke();
+// restore to original state
 ctx.restore();
 }
